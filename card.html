@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fbe8a6;
+        }
+        .card {
+            width: 420px;
+            height: 450px;
+            background: #fba6a6;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            position: relative;
+            padding: 20px;
+            border: 3px solid blue;
+        }
+        .card h1 {
+            color: #2196F3;
+        }
+        .message {
+            font-size: 18px;
+            color: #555;
+            margin-top: 20px;
+        }
+        .cake {
+            font-size: 70px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #1976D2;
+        }
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff4081;
+        }
+
+        /* Balloon Animation */
+        .balloon {
+            position: absolute;
+            bottom: -50px;
+            font-size: 50px;
+            opacity: 0;
+            transition: all 2s ease-in-out;
+        }
+
+        .balloon.animate {
+            opacity: 0;
+            bottom: 300px;
+            transition: all 2s ease-in-out;
+        }
+
+        .balloon:nth-child(1) {
+            left: 30%;
+        }
+        .balloon:nth-child(2) {
+            left: 50%;
+        }
+        .balloon:nth-child(3) {
+            left: 70%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🎉 Happy Birthday! 🎂</h1>
+        <p class="message">Wishing you a day filled with love, joy, and cake! 🍰</p>
+        <div class="cake">🎂🎂🎂</div>
+        <button class="btn" onclick="showSurprise()">Click for a Surprise!</button>
+        <p id="surprise">🎁 Surprise Gift: A Big Hug 🤗<br> Happy Birthday, Teju baby! I was going to get you something super expensive and shiny, but then I realized... you already have me. 🎁😂 and Lots of Love! ❤️</p>
+
+        <!-- Balloons -->
+        <div class="balloon">🎈</div>
+        <div class="balloon">🎈</div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            // Show the surprise message
+            document.getElementById("surprise").style.display = "block";
+
+            // Add animation class to the balloons
+            const balloons = document.querySelectorAll('.balloon');
+            balloons.forEach(balloon => {
+                balloon.classList.add('animate');
+
+                // Remove the balloon after animation completes to make it disappear
+                balloon.addEventListener('transitionend', () => {
+                    balloon.style.display = 'none';
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>
